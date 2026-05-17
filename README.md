@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ivan Alfeche's Portfolio
 
-## Getting Started
+A modern, responsive portfolio website ready to be deployed.
 
-First, run the development server:
+## How to Customize
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### 1. Avatar Photo
+In `index.html`, replace the avatar image source (line 27) with your own photo URL:
+```html
+<img src="YOUR_PHOTO_URL_HERE" alt="Ivan Alfeche" class="avatar">
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Projects Section
+Each project card is wrapped in an `<a>` tag that links to your deployed project. To add your projects:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Replace `https://your-project-url-1.com` with your actual project URL
+2. Update the project title, description, tags, and GitHub link
+3. Repeat for each project
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Example project card structure:
+```html
+<a href="YOUR_PROJECT_URL" target="_blank" class="project-card-link">
+    <div class="project-card">
+        <div class="project-image">
+            <img src="PROJECT_IMAGE_URL" alt="Project Title">
+        </div>
+        <div class="project-content">
+            <h3>Your Project Title</h3>
+            <p class="project-description">Brief description of your project...</p>
+            <div class="project-tags">
+                <span class="tag">Technology1</span>
+                <span class="tag">Technology2</span>
+            </div>
+            <div class="project-links">
+                <a href="YOUR_PROJECT_URL" target="_blank" class="project-link" onclick="event.stopPropagation()">Live Demo</a>
+                <a href="YOUR_GITHUB_URL" target="_blank" class="project-link" onclick="event.stopPropagation()">GitHub</a>
+            </div>
+        </div>
+    </div>
+</a>
+```
 
-## Learn More
+### 3. Contact Information
+Update the email, GitHub, and LinkedIn links in the contact section (lines 128-140).
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment to Render
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Initialize git repository:
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Create a GitHub repository and push your code
 
-## Deploy on Vercel
+3. Go to https://render.com and sign up/sign in
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Click "New" → "Web Service"
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. Connect your GitHub account and select your repository
+
+6. Configure:
+   - Runtime: Node
+   - Build Command: `npm install`
+   - Start Command: `npm start`
+
+7. Click "Create Web Service"
+
+Your portfolio will be live in a few minutes!
